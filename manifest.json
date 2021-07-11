@@ -2,9 +2,21 @@
     "name":"chrome extension",
     "description":"show a menu item",
     "version":"1",
-    "permissions":["contextMenus","activeTab"],
-    "background":{
-        "scripts":["background.js"]
+    "permissions": ["contextMenus", "activeTab", "downloads"],
+    "icons": {
+        "16": "16.png",
+        "48": "48.png",
+        "64": "64.png",
+        "128": "128.png"
     },
-    "manifest_version":2
+    "background": {
+        "scripts": ["background.js"]
+    },
+    "content_scripts": [
+        {
+            "matches": ["*://www.google.com/*", "*://www.youtube.com/*"],
+            "js": ["index.js"]
+        }
+    ],
+    "manifest_version": 2
 }
